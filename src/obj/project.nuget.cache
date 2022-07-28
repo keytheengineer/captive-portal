@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "sdAO2uvcm3f6vneFY1reIIx3YynwobomvryNP6qF6Rml0/FUHeU9fX/ItX54PTWqmaut6+2gV1ijlvyrun+rUg==",
+  "success": true,
+  "projectFilePath": "/Users/collinhaun/repo/captive-portal/src/captive-portal.csproj",
+  "expectedPackageFiles": [
+    "/Users/collinhaun/.nuget/packages/microsoft.aspnetcore.spaproxy/6.0.1/microsoft.aspnetcore.spaproxy.6.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
