@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 namespace captive_portal_api.Controllers;
 
 [ApiController]
-[Route("[Controller]")]
+[Route("api/[Controller]")]
 public class CaptivePortalController : ControllerBase
 {
     private readonly ILogger<CaptivePortalController> _logger;
