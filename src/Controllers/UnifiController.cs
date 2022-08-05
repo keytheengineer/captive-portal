@@ -38,15 +38,16 @@ public class UnifiController : ControllerBase
         
     [HttpGet]
     [Route("Logout")]
-    public async Task<bool> Logout()
+    public async Task<ActionResult> Logout()
     {
         try
         {
-            return await _service.Logout();
+            var result = await _service.Logout();
+            return Ok(result);
         }
         catch (Exception e)
         {
-            throw(e);
+            return BadRequest(e);
         }
     }    
     

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -90,7 +91,21 @@ public class Client : BaseResponse
     }
 
     [JsonPropertyName("ip")]
-    public string? IpAddress { get; set; }
+    public string? IpAddressInternal { get; set; }
+
+    [JsonIgnore]
+    public IPAddress? IpAddress
+    {
+        get 
+        {
+            if(IPAddress.TryParse(IpAddressInternal, out var ip))
+            {
+                return ip;
+            }
+            return null;
+        }
+        set { IpAddressInternal = value != null ? value.ToString() : null; }
+    }
 
     [JsonPropertyName("is_guest")]
     public bool? IsGuest { get; set; }

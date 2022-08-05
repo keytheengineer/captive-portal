@@ -14,7 +14,7 @@ namespace captive_portal_api.Services;
 public class UnifiApiService 
 {
     private HttpClient Client;
-    private readonly ILogger Logger;
+    private readonly ILogger<UnifiApiService> Logger;
     private LoginCredentials Credentials;
     public Uri BaseUri { get; private set; }
     public string SiteId { get; private set; } = "default";
@@ -142,13 +142,30 @@ public class UnifiApiService
                 throw new InvalidOperationException("No active connection yet and unable to reauthenticate using cached credentials. Call Authenticate first.");
             }
         }
-        using(var request = new HttpRequestMessage(HttpMethod.Post, uri))
+
+        var content = new StringContent(postData, Encoding.UTF8, "application/json");
+        try
         {
-            request.Content = new StringContent(postData, Encoding.UTF8, "application/json");
-            request.Headers.Add("Accept", "application/json, text/plain, */*");        
-            try
+            await Logout();
+            await Login();
+            var responseMessage = await Client.PostAsync(uri, content);
+            if(responseMessage.StatusCode == HttpStatusCode.OK)
             {
-                var responseMessage = await Client.SendAsync(request);
+                IsAuthenticated = true;
+            }
+            var result = await responseMessage.Content.ReadAsStringAsync();
+            return result;
+        }
+        catch(HttpRequestException e) when (e.Message.Contains("401"))
+        {
+            Logger.LogError(e.ToString());
+            if (IsAuthenticated)
+            {
+                if (!await Reauthenticate())
+                {
+                    throw new InvalidOperationException("Unable to reauthenticate using cached credentials. Call Authenticate first.");
+                }
+                var responseMessage = await Client.PostAsync(uri, content);
                 if(responseMessage.StatusCode == HttpStatusCode.OK)
                 {
                     IsAuthenticated = true;
@@ -156,26 +173,9 @@ public class UnifiApiService
                 var result = await responseMessage.Content.ReadAsStringAsync();
                 return result;
             }
-            catch(HttpRequestException e) when (e.Message.Contains("401"))
-            {
-                Logger.LogError(e.ToString());
-                if (IsAuthenticated)
-                {
-                    if (!await Reauthenticate())
-                    {
-                        throw new InvalidOperationException("Unable to reauthenticate using cached credentials. Call Authenticate first.");
-                    }
-                    var responseMessage = await Client.SendAsync(request);
-                    if(responseMessage.StatusCode == HttpStatusCode.OK)
-                    {
-                        IsAuthenticated = true;
-                    }
-                    var result = await responseMessage.Content.ReadAsStringAsync();
-                    return result;
-                }
-                throw(e);
-            }
+            throw(e);
         }
+        
     }
     public async Task<List<Client>> GetActiveClients()
     {

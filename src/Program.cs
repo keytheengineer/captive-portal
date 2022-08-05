@@ -21,6 +21,7 @@ builder.Services.AddHttpClient("UnifiApiClient")
         ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
     });
 builder.Services.AddSingleton<UnifiApiService>();
+builder.Services.AddTransient<CaptivePortalService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
 
