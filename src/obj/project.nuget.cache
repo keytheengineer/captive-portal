@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pGkTae91/IyfCM2pwo33aRiVuFKyN1of6ycljXL6sOo6m1s/yOKqzaz5+OY+ZxVVhE47dhRgV3EnYRXZYFWhLw==",
+  "dgSpecHash": "2/eYy/zltJYH40P5mUgIEF/2wQadp8a0B0P7ehJ7QCTZRIxzIr2wSTJhXeQ4grVFH571/cvnnZ0UO6ictbUheQ==",
   "success": true,
   "projectFilePath": "/Users/collinhaun/repo/captive-portal/src/captive-portal.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "/Users/collinhaun/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/collinhaun/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/collinhaun/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/collinhaun/.nuget/packages/restsharp/107.3.0/restsharp.107.3.0.nupkg.sha512",
+    "/Users/collinhaun/.nuget/packages/restsharp.serializers.newtonsoftjson/107.3.0/restsharp.serializers.newtonsoftjson.107.3.0.nupkg.sha512",
     "/Users/collinhaun/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/Users/collinhaun/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "/Users/collinhaun/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

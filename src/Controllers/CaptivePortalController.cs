@@ -38,7 +38,7 @@ public class CaptivePortalController : ControllerBase
             ip = remoteIpAddress.ToString();
         }
         //! TESTING ONLY
-        ip = "192.168.100.29";
+        ip = "";
         var result = Task.Run(() => _service.RequestGuestAccess(ip));
         return Ok(await result);
     }

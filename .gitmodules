@@ -1,0 +1,3 @@
+[submodule "UniFiSharp"]
+	path = UniFiSharp
+	url = https://github.com/keytheengineer/UniFiSharp.git

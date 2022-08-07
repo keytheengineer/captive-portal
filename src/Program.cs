@@ -20,7 +20,15 @@ builder.Services.AddHttpClient("UnifiApiClient")
         //CookieContainer = unifiCookieContainer.,
         ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
     });
-builder.Services.AddSingleton<UnifiApiService>();
+builder.Services.AddSingleton<UniFiSharp.UniFiApi>(x => 
+    {;
+        var conString = Environment.GetEnvironmentVariable("UNIFI_BASEURI");
+        var uri = new Uri(conString);
+        var user = Environment.GetEnvironmentVariable("UNIFI_USERNAME");
+        var pass = Environment.GetEnvironmentVariable("UNIFI_PASSWORD");
+        var api = new UniFiSharp.UniFiApi(baseUrl: uri,username:user,password:pass,site:"default",ignoreSslValidation:true,useModernApi:true);
+        return api;
+    });
 builder.Services.AddTransient<CaptivePortalService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();

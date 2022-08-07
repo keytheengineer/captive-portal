@@ -11,9 +11,14 @@
 /Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/Microsoft.AspNetCore.SpaProxy.dll
 /Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/Microsoft.OpenApi.dll
 /Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/RestSharp.dll
+/Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/RestSharp.Serializers.NewtonsoftJson.dll
 /Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/UniFiSharp.dll
+/Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/UniFiSharp.pdb
+/Users/collinhaun/repo/captive-portal/src/bin/Debug/net6.0/UniFiSharp.xml
 /Users/collinhaun/repo/captive-portal/src/obj/Debug/net6.0/captive-portal.csproj.AssemblyReference.cache
 /Users/collinhaun/repo/captive-portal/src/obj/Debug/net6.0/spa.proxy.json
 /Users/collinhaun/repo/captive-portal/src/obj/Debug/net6.0/captive-portal.GeneratedMSBuildEditorConfig.editorconfig

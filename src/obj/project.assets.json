@@ -46,6 +46,28 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "RestSharp/107.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/RestSharp.dll": {}
+        }
+      },
+      "RestSharp.Serializers.NewtonsoftJson/107.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1",
+          "RestSharp": "107.3.0"
+        },
+        "compile": {
+          "lib/net6.0/RestSharp.Serializers.NewtonsoftJson.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/RestSharp.Serializers.NewtonsoftJson.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "type": "package",
         "dependencies": {
@@ -96,6 +118,21 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "UniFiSharp/1.5.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "RestSharp": "107.3.0",
+          "RestSharp.Serializers.NewtonsoftJson": "107.3.0"
+        },
+        "compile": {
+          "bin/placeholder/UniFiSharp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UniFiSharp.dll": {}
+        }
       }
     }
   },
@@ -390,6 +427,42 @@
         "packageIcon.png"
       ]
     },
+    "RestSharp/107.3.0": {
+      "sha512": "qu+A+VAnVLX3OeWVNm11UJz0aVErqSfYqIiOUbJM9x98uLymCOoL/oXRAjMb6XHra27WXxHmzy9EKEOKXWR6Pw==",
+      "type": "package",
+      "path": "restsharp/107.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/RestSharp.dll",
+        "lib/net5.0/RestSharp.xml",
+        "lib/net6.0/RestSharp.dll",
+        "lib/net6.0/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.107.3.0.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
+      ]
+    },
+    "RestSharp.Serializers.NewtonsoftJson/107.3.0": {
+      "sha512": "+AS2UA2LYWSkRnp+knYyS7tyuWqkpEL32HgYdb8Ope4fppB1nX6/LixoGJhPb7maOIIFPX18Q1ggq5scmqTeQg==",
+      "type": "package",
+      "path": "restsharp.serializers.newtonsoftjson/107.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/RestSharp.Serializers.NewtonsoftJson.dll",
+        "lib/net5.0/RestSharp.Serializers.NewtonsoftJson.xml",
+        "lib/net6.0/RestSharp.Serializers.NewtonsoftJson.dll",
+        "lib/net6.0/RestSharp.Serializers.NewtonsoftJson.xml",
+        "lib/netstandard2.0/RestSharp.Serializers.NewtonsoftJson.dll",
+        "lib/netstandard2.0/RestSharp.Serializers.NewtonsoftJson.xml",
+        "restsharp.png",
+        "restsharp.serializers.newtonsoftjson.107.3.0.nupkg.sha512",
+        "restsharp.serializers.newtonsoftjson.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.4.0": {
       "sha512": "eUBr4TW0up6oKDA5Xwkul289uqSMgY0xGN4pnbOIBqCcN9VKGGaPvHX3vWaG/hvocfGDP+MGzMA0bBBKz2fkmQ==",
       "type": "package",
@@ -470,13 +543,19 @@
         "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "UniFiSharp/1.5.0": {
+      "type": "project",
+      "path": "../UniFiSharp/UniFiSharp/UniFiSharp.csproj",
+      "msbuildProject": "../UniFiSharp/UniFiSharp/UniFiSharp.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.SpaProxy >= 6.0.1",
       "Newtonsoft.Json >= 13.0.1",
-      "Swashbuckle.AspNetCore >= 6.4.0"
+      "Swashbuckle.AspNetCore >= 6.4.0",
+      "UniFiSharp >= 1.5.0"
     ]
   },
   "packageFolders": {
@@ -503,7 +582,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/collinhaun/repo/captive-portal/UniFiSharp/UniFiSharp/UniFiSharp.csproj": {
+              "projectPath": "/Users/collinhaun/repo/captive-portal/UniFiSharp/UniFiSharp/UniFiSharp.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -6,10 +6,10 @@ namespace captive_portal_api.Services;
 public class CaptivePortalService 
 {
 
-    private readonly UnifiApiService unifiApiService;
+    private readonly UniFiSharp.UniFiApi unifiApiService;
     private readonly ILogger<CaptivePortalService> _logger;
 
-    public CaptivePortalService(UnifiApiService service, ILogger<CaptivePortalService> logger)
+    public CaptivePortalService(UniFiSharp.UniFiApi service, ILogger<CaptivePortalService> logger)
     {
         unifiApiService = service;
         _logger = logger;
@@ -17,18 +17,19 @@ public class CaptivePortalService
 
     public async Task<bool> RequestGuestAccess(string ipAddress)
     {
-        var client = (await unifiApiService.GetActiveClients())
-            .FirstOrDefault(x => x.IpAddressInternal == ipAddress);
+        var client = (await unifiApiService.ClientList())
+            .FirstOrDefault(x => x.ip == ipAddress);
         if(client != null)
         {
-            _logger.LogInformation($"Client Found. Hostname: {client.Hostname}, IpAddress: {client.IpAddressInternal}, MAC: {client.MacAddress}");
+            _logger.LogInformation($"Client Found. Hostname: {client.hostname}, IpAddress: {client.ip}, MAC: {client.mac}");
             // TODO send info to Home Assistant
             // TODO await verify with HA Admin
             var approved = true; //placeholder
             if(approved)
             {
-                var authorizeGuestResult = (await unifiApiService.AuthorizeGuest(client)).data;
-                var result = authorizeGuestResult != null ? authorizeGuestResult.First().IsAuthorized.GetValueOrDefault() : false;
+                //var authorizeGuestResult = (await unifiApiService.ClientAuthorize(client.mac));
+                await unifiApiService.ClientAuthorize(client.mac);
+                var result = true;//authorizeGuestResult != null ? authorizeGuestResult.First().IsAuthorized.GetValueOrDefault() : false;
                 return result;
             }
             return false;

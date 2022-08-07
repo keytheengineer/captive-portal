@@ -19,6 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+      <ProjectReference Include="../UniFiSharp/UniFiSharp/UniFiSharp.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
